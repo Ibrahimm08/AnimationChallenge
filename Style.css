@@ -1,4 +1,6 @@
-
+html{
+    background: dimgray;
+}
 .envalope{
     position: absolute;
     background-color: blue;
@@ -6,6 +8,7 @@
     margin-top: 30%;
     margin-left: 40%;
     width: 400px; height: 200px;
+    transition: all 0.2s;
     z-index: 0;
 }
 .left{
@@ -34,3 +37,19 @@
     border-radius: 10px;
     z-index: 3;
  }
+.btn{
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 400px; height: 200px;
+    z-index: 4;
+}
+
+body:has(.btn:hover) .top{
+    transform: rotateX(180deg) translateY(130px);
+}
+body:has(.btn:hover) .envalope{
+    box-shadow: 10px 10px 40px;
+    transform: translateY(50px);
+}
