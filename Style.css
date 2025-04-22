@@ -149,22 +149,19 @@ html{
 
 /* Hover Controls */
 
-body:has(.btn:hover).top{
+body:has(.btn:hover) .top{
     transition-delay: 0s;
     transform: rotateX(180deg) translateY(130px);
     z-index: 0;
 }
-
-body:has(.btn:not(:hover)) .top{
-    transform: rotateX(0deg) translateY();
+body:has(.btn:not(:hover) .top){
+    transform: rotateX(0deg) translateY(0px);
 }
-
 body:has(.btn:hover) .envalope{
     box-shadow: 10px 10px 40px;
     transform: translateY(50px);
 }
-
-body:has(.btn:hover).form{
+body:has(.btn:hover) .form{
     transition-delay: 0.5s;
     height: 500px;
     transform: translateY(-350px);
