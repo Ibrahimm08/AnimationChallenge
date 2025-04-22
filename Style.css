@@ -153,6 +153,15 @@ html{
     left: 15px
 }
 
+.FakeCursor{
+    border-style: solid;
+    border-width: 0 10px 30px 10px;
+    border-color: transparent transparent #000000 transparent;
+    transform: rotate(90deg);
+    top: 380px;
+    left: 10px;
+}
+
 /* Hover Controls */
 
 body:has(.btn:hover) .top{
@@ -181,4 +190,30 @@ body:has(.btn:not(:hover)) .form .Checkbox{
     transition: 0s;
     transition-delay: 0s;
     background-color: white;
+}
+
+body:has(.btn:hover) .form .FakeCursor{
+    animation: Plant-Yourself-On-The-Point 2s both 2s ;
+}
+
+body:has(.btn:hover) .form .Circle{
+    transition: 0.5s;
+    transition-delay: 3.75s;
+    background-color: rgb(254, 99, 99);
+}
+
+/* Animations */
+@keyframes Plant-Yourself-On-The-Point {
+    0%{
+        transform: rotateZ(80deg) translateX(0px) translateY(0px);
+    }
+    30%{
+        transform: rotateZ(90deg) translateX(130px) translateY(-30px);
+    }
+    50%{
+        transform: rotateZ(60deg) translateX(180px) translateY(-80px) ;
+    }
+    100%{
+        transform: rotateZ(30deg) translateX(200px) translateY(-120px);
+    }
 }
