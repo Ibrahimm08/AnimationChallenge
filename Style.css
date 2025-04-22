@@ -112,14 +112,14 @@ html{
     background-color: rgba(99, 166, 254, 0.856);
     width: 80px; height: 40px;
     border-radius: 100px;
-    bottom: 90px;
+    top: 360px;
     right: 50px;
 }
 
 .form .Checkbox{
     border: 3px solid rgba(0, 0, 0, 0.783);
     width: 10px; height: 10px;
-    bottom: 105px;
+    top: 380px;
     left: 60px;
 }
 .form .Checkbox .Flines{
