@@ -9,7 +9,7 @@ html{
     margin-left: 40%;
     width: 400px; height: 200px;
     transition: all 0.2s;
-    z-index: 0;
+    z-index: 2;
 }
 .left{
     position: absolute;
@@ -17,7 +17,7 @@ html{
     border-width: 200px 0 0 300px;
     border-color: transparent transparent transparent #2A95FF;
     border-radius: 10px;
-    z-index: 1;
+    z-index: 2;
 }
 .right{
     position: absolute;
@@ -27,7 +27,7 @@ html{
     border-color: transparent transparent transparent #2585e6;
     border-radius: 10px;
     transform: rotateY(180deg);
-    z-index: 2;
+    z-index: 3;
 }
 .top {
     position: absolute;
@@ -35,7 +35,9 @@ html{
     border-width: 135px 200px 0 200px;
     border-color: #419df9 transparent transparent transparent;
     border-radius: 10px;
-    z-index: 3;
+    transition-delay: 0.7s;
+    transition: transform  z-index step-start;
+    z-index: 4;
  }
 .btn{
     position: absolute;
@@ -46,10 +48,103 @@ html{
     z-index: 4;
 }
 
+.form{
+    position: absolute;
+    left: 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: 380px; height: 180px;
+    cursor: pointer;
+    transition: 0.8s;
+    overflow: hidden;
+}
+/* Form Content */
+
+.form div{
+    position: absolute;
+}
+
+.form .Fheader{
+    background-color: rgba(0, 0, 0, 0.783);
+    width: 150px; height: 35px;
+    border-radius: 5px;
+    top: 10px;
+    left: 10px;
+}
+
+.form .Fpara{
+    background-color: rgba(254, 99, 99, 0.593);
+    width: 100px; height: 20px;
+}
+
+.form .Fpara:nth-child(5){
+    top:260px;
+    left: 10px;
+}.form .Fpara:nth-child(5) .Flines{
+    background-color: rgba(177, 177, 177, 0.593);;
+    width: 360px; height: 60px;
+}
+
+.form .Fpara:nth-child(4){
+    top: 180px;
+    left: 10px;
+}.form .Fpara:nth-child(4) .Flines{
+    width: 360px;
+}
+
+.form .Fpara:nth-child(3){
+    top: 80px;
+    left: calc(50% + 10px);
+}
+
+.form .Fpara:nth-child(2){
+    top: 80px;
+    left: 10px;
+}
+
+.form .Flines{
+    background-color: rgba(99, 166, 254, 0.593);
+    width: 150px; height: 30px;
+    top: 30px
+}
+
+.form .Circle{
+    background-color: rgba(99, 166, 254, 0.856);
+    width: 80px; height: 40px;
+    border-radius: 100px;
+    bottom: 90px;
+    right: 50px;
+}
+
+.form .Checkbox{
+    border: 3px solid rgba(0, 0, 0, 0.783);
+    width: 10px; height: 10px;
+    bottom: 105px;
+    left: 60px;
+}
+.form .Checkbox .Flines{
+    background-color: rgba(0, 0, 0, 0.783);;
+    height: 5px;
+    top: 3px;
+    left: 15px
+}
+
+/* Hover Controls */
+
 body:has(.btn:hover) .top{
+    transition-delay: 0s;
     transform: rotateX(180deg) translateY(130px);
+    z-index: 0;
+}
+body:has(.btn:not(:hover) .top){
+    transform: rotateX(0deg) translateY(0px);
 }
 body:has(.btn:hover) .envalope{
     box-shadow: 10px 10px 40px;
     transform: translateY(50px);
+}
+body:has(.btn:hover) .form{
+    transition-delay: 0.5s;
+    height: 500px;
+    transform: translateY(-350px);
 }
