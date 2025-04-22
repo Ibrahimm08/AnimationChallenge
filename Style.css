@@ -68,6 +68,7 @@ html{
     background-color: rgba(0, 0, 0, 0.697);
     width: 130px; height: 5px;
     top: 7px;
+    transition: 0.5s 1.5s;
 }
 
 .form .Fheader{
@@ -89,6 +90,8 @@ html{
 }.form .Fpara:nth-child(5) .Flines{
     background-color: rgba(177, 177, 177, 0.593);;
     width: 360px; height: 60px;
+}.form .Fpara:nth-child(5) .InnerLines{
+    transition-delay: 2.5s;
 }.form .Fpara:nth-child(5) .InnerLines:nth-child(2){
     top: 25px;
     width: 340px;
@@ -106,6 +109,7 @@ html{
     width: 360px; height: 40px;
 }.form .Fpara:nth-child(4) .InnerLines{
     width: 340px;
+    transition-delay: 2s;
 }.form .Fpara:nth-child(4) .InnerLines:nth-child(2){
     top: 25px;
 }
@@ -136,9 +140,11 @@ html{
 
 .form .Checkbox{
     border: 3px solid rgba(0, 0, 0, 0.783);
+    background-color: rgb(254, 99, 99);
     width: 10px; height: 10px;
     top: 380px;
     left: 60px;
+    transition: 0.5s 3s;
 }
 .form .Checkbox .Flines{
     background-color: rgba(0, 0, 0, 0.783);;
@@ -165,4 +171,14 @@ body:has(.btn:hover) .form{
     transition-delay: 0.5s;
     height: 500px;
     transform: translateY(-350px);
+}
+body:has(.btn:not(:hover)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:hover)) .Fpara .InnerLines{
+    transition: 0s;
+    transition-delay: 0s;
+    width: 0px;
+}
+body:has(.btn:not(:hover)) .form .Checkbox{
+    transition: 0s;
+    transition-delay: 0s;
+    background-color: white;
 }
