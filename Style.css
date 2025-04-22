@@ -64,6 +64,12 @@ html{
     position: absolute;
 }
 
+.form .InnerLines{
+    background-color: rgba(0, 0, 0, 0.697);
+    width: 130px; height: 5px;
+    top: 7px;
+}
+
 .form .Fheader{
     background-color: rgba(0, 0, 0, 0.783);
     width: 150px; height: 35px;
@@ -83,13 +89,25 @@ html{
 }.form .Fpara:nth-child(5) .Flines{
     background-color: rgba(177, 177, 177, 0.593);;
     width: 360px; height: 60px;
+}.form .Fpara:nth-child(5) .InnerLines:nth-child(2){
+    top: 25px;
+    width: 340px;
+}.form .Fpara:nth-child(5) .InnerLines:nth-child(3){
+    top: 45px;
+    width: 200px;
+}.form .Fpara:nth-child(5) .InnerLines:nth-child(1){
+    width: 340px;
 }
 
 .form .Fpara:nth-child(4){
     top: 180px;
     left: 10px;
 }.form .Fpara:nth-child(4) .Flines{
-    width: 360px;
+    width: 360px; height: 40px;
+}.form .Fpara:nth-child(4) .InnerLines{
+    width: 340px;
+}.form .Fpara:nth-child(4) .InnerLines:nth-child(2){
+    top: 25px;
 }
 
 .form .Fpara:nth-child(3){
@@ -104,7 +122,7 @@ html{
 
 .form .Flines{
     background-color: rgba(99, 166, 254, 0.593);
-    width: 150px; height: 30px;
+    width: 150px; height: 20px;
     top: 30px
 }
 
@@ -131,19 +149,22 @@ html{
 
 /* Hover Controls */
 
-body:has(.btn:hover) .top{
+body:has(.btn:hover).top{
     transition-delay: 0s;
     transform: rotateX(180deg) translateY(130px);
     z-index: 0;
 }
-body:has(.btn:not(:hover) .top){
-    transform: rotateX(0deg) translateY(0px);
+
+body:has(.btn:not(:hover)) .top{
+    transform: rotateX(0deg) translateY();
 }
+
 body:has(.btn:hover) .envalope{
     box-shadow: 10px 10px 40px;
     transform: translateY(50px);
 }
-body:has(.btn:hover) .form{
+
+body:has(.btn:hover).form{
     transition-delay: 0.5s;
     height: 500px;
     transform: translateY(-350px);
