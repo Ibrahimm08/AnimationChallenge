@@ -9,6 +9,7 @@ html{
     margin-left: 40%;
     width: 400px; height: 200px;
     transition: all 0.2s;
+    animation: RockyBoat 0.3s infinite alternate ease-in-out;
     z-index: 2;
 }
 .left{
@@ -175,34 +176,48 @@ body:has(.btn:not(:hover) .top){
 body:has(.btn:hover) .envalope{
     box-shadow: 10px 10px 40px;
     transform: translateY(50px);
+    animation-play-state: paused;
 }
-body:has(.btn:hover) .form{
+
+/* body:has(.btn:hover) .form{
     transition-delay: 0.5s;
     height: 500px;
     transform: translateY(-350px);
-}
-body:has(.btn:not(:hover)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:hover)) .Fpara .InnerLines{
+} */
+
+body:has(:not(.form.ActiveForm)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:hover)) .Fpara .InnerLines{
     transition: 0s;
     transition-delay: 0s;
     width: 0px;
 }
-body:has(.btn:not(:hover)) .form .Checkbox{
+body:has(:not(.form.ActiveForm)) .form .Checkbox{
     transition: 0s;
     transition-delay: 0s;
     background-color: white;
 }
 
-body:has(.btn:hover) .form .FakeCursor{
+body:has(.form.ActiveForm) .form .FakeCursor{
     animation: Plant-Yourself-On-The-Point 2s both 2s ;
 }
 
-body:has(.btn:hover) .form .Circle{
+body:has(.form.ActiveForm) .form .Circle{
     transition: 0.5s;
     transition-delay: 3.75s;
     background-color: rgb(254, 99, 99);
 }
 
+/* Button Controls */
+
+.ActiveForm{
+    transition-delay: 0.5s;
+    height: 500px;
+    transform: translateY(-350px);
+}
+
+
 /* Animations */
+
+/* Fake cursor animation */
 @keyframes Plant-Yourself-On-The-Point {
     0%{
         transform: rotateZ(80deg) translateX(0px) translateY(0px);
@@ -216,4 +231,15 @@ body:has(.btn:hover) .form .Circle{
     100%{
         transform: rotateZ(30deg) translateX(200px) translateY(-120px);
     }
+}
+
+/* Envelope animation */
+@keyframes RockyBoat {
+    from{
+        transform: rotateZ(-5deg);
+    }
+    to{
+        transform: rotateZ(5deg);
+    }
+    
 }
