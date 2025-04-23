@@ -36,6 +36,7 @@ html{
     border-width: 135px 200px 0 200px;
     border-color: #419df9 transparent transparent transparent;
     border-radius: 10px;
+    top: 0;
     transition-delay: 0.7s;
     transition: transform  z-index step-start;
     z-index: 4;
@@ -46,7 +47,7 @@ html{
     outline: none;
     background-color: transparent;
     width: 400px; height: 200px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .form{
@@ -54,7 +55,8 @@ html{
     left: 10px;
     background-color: white;
     border-radius: 10px;
-    width: 380px; height: 180px;
+    width: 380px; height: 200px;
+    bottom: 0;
     cursor: pointer;
     transition: 0.8s;
     overflow: hidden;
@@ -178,40 +180,38 @@ body:has(.btn:hover) .envalope{
     transform: translateY(50px);
     animation-play-state: paused;
 }
+body:has(.btn:hover) .form{
+    transition: all 0.3s 0.5s;
+    height: 250px;
+    bottom: 0;
+}
 
-/* body:has(.btn:hover) .form{
-    transition-delay: 0.5s;
-    height: 500px;
-    transform: translateY(-350px);
-} */
+/* Button Controls */
 
-body:has(:not(.form.ActiveForm)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:hover)) .Fpara .InnerLines{
+body:has(.btn:not(:active)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:active)) .Fpara .InnerLines{
     transition: 0s;
     transition-delay: 0s;
     width: 0px;
 }
-body:has(:not(.form.ActiveForm)) .form .Checkbox{
+body:has(.btn:not(:active)) .form .Checkbox{
     transition: 0s;
     transition-delay: 0s;
     background-color: white;
 }
 
-body:has(.form.ActiveForm) .form .FakeCursor{
+body:has(.btn:active) .form .FakeCursor{
     animation: Plant-Yourself-On-The-Point 2s both 2s ;
 }
 
-body:has(.form.ActiveForm) .form .Circle{
+body:has(.btn:active) .form .Circle{
     transition: 0.5s;
     transition-delay: 3.75s;
     background-color: rgb(254, 99, 99);
 }
 
-/* Button Controls */
-
-.ActiveForm{
+body:has(.btn:active) .form{
     transition-delay: 0.5s;
-    height: 500px;
-    transform: translateY(-350px);
+    height: 550px;
 }
 
 
