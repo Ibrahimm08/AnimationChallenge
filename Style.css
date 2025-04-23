@@ -52,6 +52,7 @@ html{
     z-index: 5;
 }
 
+/* ----------------Form Content--------------- */
 .form{
     position: absolute;
     left: 10px;
@@ -63,7 +64,6 @@ html{
     transition: 0.8s;
     overflow: hidden;
 }
-/* ----------------Form Content--------------- */
 
 .form div{
     position: absolute;
@@ -73,7 +73,7 @@ html{
     background-color: rgba(0, 0, 0, 0.697);
     width: 130px; height: 5px;
     top: 7px;
-    transition: 0.5s 1.5s;
+    transition: 0.5s 0.5s;
 }
 
 .form .Fheader{
@@ -96,7 +96,7 @@ html{
     background-color: rgba(177, 177, 177, 0.593);;
     width: 360px; height: 60px;
 }.form .Fpara:nth-child(5) .InnerLines{
-    transition-delay: 2.5s;
+    transition-delay: 1.5s;
 }.form .Fpara:nth-child(5) .InnerLines:nth-child(2){
     top: 25px;
     width: 340px;
@@ -114,7 +114,7 @@ html{
     width: 360px; height: 40px;
 }.form .Fpara:nth-child(4) .InnerLines{
     width: 340px;
-    transition-delay: 2s;
+    transition-delay: 1s;
 }.form .Fpara:nth-child(4) .InnerLines:nth-child(2){
     top: 25px;
 }
@@ -149,7 +149,7 @@ html{
     width: 10px; height: 10px;
     top: 380px;
     left: 60px;
-    transition: 0.5s 3s;
+    transition: 0.5s 2s;
 }
 .form .Checkbox .Flines{
     background-color: rgba(0, 0, 0, 0.783);;
@@ -176,6 +176,16 @@ html{
         border-radius: 20px;
         width: 1100px; height: 700px;
     }
+
+    #Fpopover .CloseBtn{
+        position: absolute;
+        border: none;
+        cursor: pointer;
+        right: 20px;
+        border-radius: 10px;
+        background-color: rgb(234, 234, 234);
+    }
+
     .Info{
         margin-left: 40px;
         left: 50px;
@@ -189,7 +199,6 @@ html{
         font-size: larger;
         margin-top: 50px;
     }
-
 
     .ContactDetails{
         margin-left: 40px;
@@ -242,6 +251,7 @@ html{
     }
     .PopForm .Acceptance:is(input){
         accent-color: gray;
+        cursor: pointer;
         width: 20px; height: 20px;
         bottom: -133px;
         left: 0px;
@@ -251,6 +261,7 @@ html{
         background-color: gray;
         color: whitesmoke;
         border: none;
+        cursor: pointer;
         right: 0; bottom: -150px;
         width: 100px; height: 30px;
     }
@@ -271,81 +282,132 @@ html{
 
 /* ------------------------------------------------------------------- */
 
-/* Hover Controls */
 
-body:has(.btn:hover) .top{
-    transition-delay: 0s;
-    transform: rotateX(180deg) translateY(130px);
-    z-index: 0;
-}
-body:has(.btn:not(:hover) .top){
-    transform: rotateX(0deg) translateY(0px);
-}
-body:has(.btn:hover) .envalope{
-    box-shadow: 10px 10px 40px;
-    transform: translateY(50px);
-    animation-play-state: paused;
-}
-body:has(.btn:hover) .form{
-    transition: all 0.3s 0.5s;
-    height: 250px;
-    bottom: 0;
-}
-
-/* Button Controls */
-
-body:has(.btn:not(:active)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:active)) .Fpara .InnerLines{
-    transition: 0s;
-    transition-delay: 0s;
-    width: 0px;
-}
-body:has(.btn:not(:active)) .form .Checkbox{
-    transition: 0s;
-    transition-delay: 0s;
-    background-color: white;
-}
-
-body:has(.btn:active) .form .FakeCursor{
-    animation: Plant-Yourself-On-The-Point 2s both 2s ;
-}
-
-body:has(.btn:active) .form .Circle{
-    transition: 0.5s;
-    transition-delay: 3.75s;
-    background-color: rgb(254, 99, 99);
-}
-
-body:has(.btn:active) .form{
-    transition-delay: 0.5s;
-    height: 550px;
-}
-
-
-/* Animations */
-
-/* Fake cursor animation */
-@keyframes Plant-Yourself-On-The-Point {
-    0%{
-        transform: rotateZ(80deg) translateX(0px) translateY(0px);
-    }
-    30%{
-        transform: rotateZ(90deg) translateX(130px) translateY(-30px);
-    }
-    50%{
-        transform: rotateZ(60deg) translateX(180px) translateY(-80px) ;
-    }
-    100%{
-        transform: rotateZ(30deg) translateX(200px) translateY(-120px);
-    }
-}
-
-/* Envelope animation */
-@keyframes RockyBoat {
-    from{
-        transform: rotateZ(-5deg);
-    }
-    to{
-        transform: rotateZ(5deg);
-    }
+/* ------------------SideNav------------------ */
     
-}
+    .sideNavBtn{
+        position: absolute;
+        border: none;
+        border-radius: 3px;
+        background-color: black;
+        color: whitesmoke;
+        right: 20px;
+        scale: 150%;
+    }
+
+    .sideNav::backdrop{
+        backdrop-filter: blur(3px);
+    }
+    .sideNav{
+        position: absolute;
+        inset: unset;
+        border: none;
+        border-left: 5px solid grey;
+        background-color: black;
+        height: 100%;
+        width: 250px;
+        right: -100%;
+        transition: all 0.7s allow-discrete;
+    }
+    .sideNav:popover-open{
+        right: 0;
+    }
+    @starting-style{
+        .sideNav:popover-open{
+            right:-100%;
+        }
+    }
+
+    #Main{
+        margin-left: 0;
+        transition: all 0.7s allow-discrete;
+    }
+    body:has(.sideNav:popover-open) #Main{
+        margin-left: -250px;
+    }
+
+    .sideNav a{
+        display: block;
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: xx-large;
+        text-align: center;
+        margin-top: 40px;
+    }
+/* ------------------Hover Controls------------------ */
+
+    body:has(.btn:hover) .top{
+        transition-delay: 0s;
+        transform: rotateX(180deg) translateY(130px);
+        z-index: 0;
+    }
+    body:has(.btn:not(:hover) .top){
+        transform: rotateX(0deg) translateY(0px);
+    }
+    body:has(.btn:hover) .envalope{
+        box-shadow: 10px 10px 40px;
+        transform: translateY(50px);
+        animation-play-state: paused;
+    }
+    body:has(.btn:hover) .form{
+        transition: all 0.3s 0.5s;
+        height: 250px;
+        bottom: 0;
+    }
+
+/* ------------------Button Controls------------------ */
+
+    body:has(.btn:not(:active)) .Fpara:nth-child(5) .InnerLines, body:has(.btn:not(:active)) .Fpara .InnerLines{
+        transition: 0s;
+        transition-delay: 0s;
+        width: 0px;
+    }
+    body:has(.btn:not(:active)) .form .Checkbox{
+        transition: 0s;
+        transition-delay: 0s;
+        background-color: white;
+    }
+
+    body:has(.btn:active) .form .FakeCursor{
+        animation: Plant-Yourself-On-The-Point 2s both 1s ;
+    }
+
+    body:has(.btn:active) .form .Circle{
+        transition: 0.5s;
+        transition-delay: 2.75s;
+        background-color: rgb(254, 99, 99);
+    }
+
+    body:has(.btn:active) .form{
+        transition-delay: 0s;
+        height: 550px;
+    }
+
+/* ------------------Animations------------------ */
+
+    /* Fake cursor animation */
+    @keyframes Plant-Yourself-On-The-Point {
+        0%{
+            transform: rotateZ(80deg) translateX(0px) translateY(0px);
+        }
+        30%{
+            transform: rotateZ(90deg) translateX(130px) translateY(-30px);
+        }
+        50%{
+            transform: rotateZ(60deg) translateX(180px) translateY(-80px) ;
+        }
+        100%{
+            transform: rotateZ(30deg) translateX(200px) translateY(-120px);
+        }
+    }
+
+    /* Envelope animation */
+    @keyframes RockyBoat {
+        from{
+            transform: rotateZ(-5deg);
+        }
+        to{
+            transform: rotateZ(5deg);
+        }
+        
+    }
